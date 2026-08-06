@@ -1,0 +1,138 @@
+{
+  "plugins": [
+    {
+      "manifest": {
+        "plugin_id": "dev.crowquillx.anilist-sync",
+        "version": "0.3.0",
+        "silo_api_version": "v1",
+        "supported_platforms": [
+          {
+            "os": "linux",
+            "arch": "amd64"
+          },
+          {
+            "os": "linux",
+            "arch": "arm64"
+          },
+          {
+            "os": "darwin",
+            "arch": "arm64"
+          }
+        ],
+        "capabilities": [
+          {
+            "type": "watch_sync_provider.v1",
+            "id": "anilist",
+            "display_name": "AniList",
+            "description": "Syncs completed playback and optionally manual watched marks to AniList, and imports mapped watch history.",
+            "watch_sync_provider": {
+              "auth_methods": [
+                1,
+                2
+              ],
+              "export_watched": true,
+              "import_watched": true,
+              "supported_media_types": [
+                1,
+                2
+              ],
+              "external_id_namespaces": [
+                "anilist",
+                "imdb",
+                "tmdb",
+                "tvdb"
+              ],
+              "max_batch_size": 25,
+              "scrobble_playback": true
+            }
+          }
+        ],
+        "global_config_schema": [
+          {
+            "key": "provider",
+            "title": "AniList provider settings",
+            "description": "OAuth credentials and watched synchronization behavior.",
+            "json_schema": "{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"client_id\":{\"type\":\"string\",\"pattern\":\"^[0-9]+$\"},\"client_secret\":{\"type\":\"string\",\"minLength\":1},\"sync_manual_watched\":{\"type\":\"boolean\",\"default\":false},\"playback_completion_percent\":{\"type\":\"number\",\"minimum\":1,\"maximum\":99,\"default\":90}},\"required\":[\"client_id\",\"client_secret\"]}",
+            "required": true,
+            "admin_form": {
+              "fields": [
+                {
+                  "key": "client_id",
+                  "label": "Client ID",
+                  "description": "Numeric AniList OAuth application ID.",
+                  "control": 1,
+                  "required": true,
+                  "validation": {
+                    "pattern": "^[0-9]+$"
+                  }
+                },
+                {
+                  "key": "client_secret",
+                  "label": "Client secret",
+                  "description": "AniList OAuth application secret.",
+                  "control": 3,
+                  "required": true,
+                  "secret": true,
+                  "validation": {
+                    "min_length": 1
+                  }
+                },
+                {
+                  "key": "sync_manual_watched",
+                  "label": "Sync manually marked watched items",
+                  "description": "Also send items marked watched without being played. Completed playback always syncs.",
+                  "control": 5,
+                  "default_value": false
+                },
+                {
+                  "key": "playback_completion_percent",
+                  "label": "Playback completion threshold",
+                  "description": "Playback must pass this percentage before AniList progress advances. Match Silo's watched threshold.",
+                  "control": 4,
+                  "required": true,
+                  "default_value": 90,
+                  "validation": {
+                    "has_min": true,
+                    "min": 1,
+                    "has_max": true,
+                    "max": 99
+                  }
+                }
+              ],
+              "submit_label": "Save AniList settings"
+            }
+          }
+        ],
+        "category": "Integrations/Tracking",
+        "presentation": {
+          "display_name": "AniList Sync",
+          "summary": "Reliably synchronize completed anime with AniList through Silo's watch-provider pipeline.",
+          "description_markdown": "Uses Silo's host-owned watch-sync pipeline for encrypted per-profile credentials, durable playback completion delivery, optional manual watched marks, retries, imports, and rich episode identity. Episode exports prefer the daily AniBridge v3 dataset, with an Anime-Lists and ARM fallback. Watch-history imports reverse-map AniList progress through AniBridge. AniList progress is monotonic and ambiguous mappings are rejected rather than guessed.",
+          "setup_markdown": "Install the plugin, enter an AniList OAuth application's client ID and secret, and match the playback completion threshold to Silo's watched threshold. Completed playback syncs automatically; enable the separate manual-watched switch only if items marked watched without playback should also sync. Silo stores provider and profile credentials encrypted and invokes this plugin as a stateless provider adapter.",
+          "homepage_url": "https://github.com/crowquillx/silo-anilist-sync",
+          "source_url": "https://github.com/crowquillx/silo-anilist-sync",
+          "support_url": "https://github.com/crowquillx/silo-anilist-sync/issues",
+          "changelog_url": "https://github.com/crowquillx/silo-anilist-sync/releases",
+          "publisher_name": "crowquillx",
+          "publisher_url": "https://github.com/crowquillx",
+          "license_spdx": "MIT"
+        }
+      },
+      "repo_url": "https://github.com/crowquillx/silo-anilist-sync",
+      "binaries": {
+        "linux/amd64": {
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.3.0/plugin-linux-amd64",
+          "checksum": "7cb6d244652008baace1b14cda00002f71613dfeef519dacc34eb188a17355eb"
+        },
+        "linux/arm64": {
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.3.0/plugin-linux-arm64",
+          "checksum": "4b0f98073bcd2257ed7d21954d6857c32ec5ab499924bb5886fc34db9fd002d0"
+        },
+        "darwin/arm64": {
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.3.0/plugin-darwin-arm64",
+          "checksum": "b92f0912027f219552f7988e836f1cda7b0e57372ca62b90c57d59980ca8f069"
+        }
+      }
+    }
+  ]
+}

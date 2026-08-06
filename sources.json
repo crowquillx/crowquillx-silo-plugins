@@ -1,0 +1,9 @@
+{
+  "sources": [
+    {
+      "plugin_id": "dev.crowquillx.anilist-sync",
+      "repo_url": "https://github.com/crowquillx/silo-anilist-sync",
+      "index_url": "https://github.com/crowquillx/silo-anilist-sync/releases/latest/download/repository.json"
+    }
+  ]
+}
