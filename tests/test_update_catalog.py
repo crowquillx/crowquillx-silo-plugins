@@ -33,6 +33,30 @@ class CatalogAggregationTests(unittest.TestCase):
         catalog = aggregate([self.source], lambda _: {"plugins": [unrelated, self.entry]})
         self.assertEqual([self.entry], catalog["plugins"])
 
+    def test_aggregate_combines_multiple_plugins_in_stable_order(self):
+        second_source = {
+            "plugin_id": "dev.example.two",
+            "repo_url": "https://github.com/example/plugin-two",
+            "index_url": "https://github.com/example/plugin-two/releases/latest/download/repository.json",
+        }
+        second_entry = copy.deepcopy(self.entry)
+        second_entry["manifest"]["plugin_id"] = second_source["plugin_id"]
+        second_entry["repo_url"] = second_source["repo_url"]
+        second_entry["binaries"]["linux/amd64"]["url"] = (
+            second_source["repo_url"] + "/releases/download/v1.2.3/plugin-linux-amd64"
+        )
+        responses = {
+            self.source["index_url"]: {"plugins": [self.entry]},
+            second_source["index_url"]: {"plugins": [second_entry]},
+        }
+
+        catalog = aggregate([second_source, self.source], responses.__getitem__)
+
+        self.assertEqual(
+            ["dev.example.one", "dev.example.two"],
+            [entry["manifest"]["plugin_id"] for entry in catalog["plugins"]],
+        )
+
     def test_rejects_binary_platform_not_advertised_by_manifest(self):
         entry = copy.deepcopy(self.entry)
         entry["binaries"]["linux/arm64"] = copy.deepcopy(entry["binaries"]["linux/amd64"])
