@@ -13,7 +13,7 @@ VERSION = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+(?:[.-][0-9A-Za-z.-]+)?$")
 
 
 def fetch_json(url: str) -> dict[str, Any]:
-    request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "silo-plugin-catalog"})
+    request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "crowquillx-silo-plugins"})
     with urllib.request.urlopen(request, timeout=30) as response:
         return json.load(response)
 
