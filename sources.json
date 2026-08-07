@@ -4,6 +4,11 @@
       "plugin_id": "dev.crowquillx.anilist-sync",
       "repo_url": "https://github.com/crowquillx/silo-anilist-sync",
       "index_url": "https://github.com/crowquillx/silo-anilist-sync/releases/latest/download/repository.json"
+    },
+    {
+      "plugin_id": "silo.shokoanime",
+      "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
+      "index_url": "https://github.com/crowquillx/silo-shoko-plugin/releases/latest/download/repository.json"
     }
   ]
 }
