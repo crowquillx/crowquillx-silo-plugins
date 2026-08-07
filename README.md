@@ -53,3 +53,7 @@ A plugin must publish a release-level `repository.json` containing its
 manifest, platform binaries, and SHA-256 checksums before it can be added to
 `sources.json`. Duplicate plugin IDs, mismatched repository URLs, missing
 platform binaries, and invalid checksums are rejected.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
