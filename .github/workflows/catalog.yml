@@ -4,9 +4,13 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Fallback refresh every 15 minutes. GitHub can silently fail to register
+  # schedules; a push touching this file re-registers them.
   schedule:
     - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
+  # Fired by plugin release workflows (event_type plugin-released) for
+  # near-instant refresh after a release.
   repository_dispatch:
     types: [plugin-released]
 
