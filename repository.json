@@ -3,7 +3,7 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.anilist-sync",
-        "version": "0.5.0",
+        "version": "0.5.2",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -99,16 +99,16 @@
       "repo_url": "https://github.com/crowquillx/silo-anilist-sync",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.0/plugin-linux-amd64",
-          "checksum": "7d891a399f0ca905c39d67835cf049bedee91308952eef80bceb5f0299000141"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.2/plugin-linux-amd64",
+          "checksum": "cc3a73b76a0fb7c181aa4932d507084bbc106eeba697dded5d8aeb9f32009372"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.0/plugin-linux-arm64",
-          "checksum": "4176677ff9d14ac4fe7bf35b08e8091a712041ee9e1c5efc738a72c12317d317"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.2/plugin-linux-arm64",
+          "checksum": "e147dbdf26fceb402f2fc8d2474a9215500d647fb6200c880c3c006bd98d602d"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.0/plugin-darwin-arm64",
-          "checksum": "0d36542d2dfdc92065afda76f42705db681781844e0d230b2bd17b4c86fc4a7b"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.2/plugin-darwin-arm64",
+          "checksum": "5ef2d9715113894fbb68beb3927aa7a08d55bd706af2770479e48a415b3bdf04"
         }
       }
     },
