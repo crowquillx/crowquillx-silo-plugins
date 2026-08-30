@@ -3,7 +3,7 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.anilist-sync",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -27,7 +27,7 @@
             "description": "Syncs completed playback and optionally manual watched marks to AniList, and imports mapped watch history.",
             "watch_sync_provider": {
               "auth_methods": [
-                2
+                3
               ],
               "export_watched": true,
               "import_watched": true,
@@ -86,7 +86,7 @@
           "display_name": "AniList Sync",
           "summary": "Reliably synchronize completed anime with AniList through Silo's watch-provider pipeline.",
           "description_markdown": "Uses Silo's host-owned watch-sync pipeline for encrypted per-profile credentials, durable playback completion delivery, optional manual watched marks, retries, imports, and rich episode identity. Episode exports prefer the daily AniBridge v3 dataset, with an Anime-Lists and ARM fallback. Watch-history imports reverse-map AniList progress through AniBridge. AniList progress is monotonic and ambiguous mappings are rejected rather than guessed.",
-          "setup_markdown": "Install the plugin and match the playback completion threshold to Silo's watched threshold. To connect a profile, open https://anilist.co/api/v2/oauth/authorize?client_id=49797&response_type=token, approve access, copy the access token AniList shows, then open Settings \u2192 Watch Providers \u2192 AniList, select Connect, and paste the token. Silo validates the token against AniList and shows the connected account. Tokens last about one year; reconnect when AniList reports the credential as expired.",
+          "setup_markdown": "Install the plugin and match the playback completion threshold to Silo's watched threshold. To connect a profile, open Settings \u2192 Watch Providers \u2192 AniList and select Connect. Silo shows a code and a button that opens the activation page; enter the code, approve access on AniList, and return to Silo \u2014 the connection completes automatically and shows your account. AniList tokens last about one year; reconnect when the credential expires. A manual paste flow remains documented in the plugin README as a fallback.",
           "homepage_url": "https://github.com/crowquillx/silo-anilist-sync",
           "source_url": "https://github.com/crowquillx/silo-anilist-sync",
           "support_url": "https://github.com/crowquillx/silo-anilist-sync/issues",
@@ -99,16 +99,16 @@
       "repo_url": "https://github.com/crowquillx/silo-anilist-sync",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.4.0/plugin-linux-amd64",
-          "checksum": "8161f8107741316dce1faf1cf57841d3ea711f7dafe71e7604e2860898875595"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.0/plugin-linux-amd64",
+          "checksum": "7d891a399f0ca905c39d67835cf049bedee91308952eef80bceb5f0299000141"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.4.0/plugin-linux-arm64",
-          "checksum": "d8fc24ca6ef8f11ca3c2bebf52856ebfd631be3ff14881ef16d5ec8e6fee11b0"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.0/plugin-linux-arm64",
+          "checksum": "4176677ff9d14ac4fe7bf35b08e8091a712041ee9e1c5efc738a72c12317d317"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.4.0/plugin-darwin-arm64",
-          "checksum": "2bbd8f0c9001da65f1bfdd2c845598d8c4fb4cc93d3b45a3384a9544cc816427"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.5.0/plugin-darwin-arm64",
+          "checksum": "0d36542d2dfdc92065afda76f42705db681781844e0d230b2bd17b4c86fc4a7b"
         }
       }
     },
