@@ -122,17 +122,17 @@
     {
       "binaries": {
         "linux/amd64": {
-          "checksum": "a5f49647450babefb6a4a095278d6a447ae9c050812aecca71578d9e021a10f5",
-          "url": "https://github.com/crowquillx/silo-comic-pages/releases/download/v0.1.0/plugin-linux-amd64"
+          "checksum": "59293bd07e7a163359ffc64feb2040646b5901195738165e099a0fc69818da60",
+          "url": "https://github.com/crowquillx/silo-comic-pages/releases/download/v0.1.1/plugin-linux-amd64"
         },
         "linux/arm64": {
-          "checksum": "51f0409219b4cafa87ec2d352f3dcfc389f39b1c1ad7c870ea729dcbdce96358",
-          "url": "https://github.com/crowquillx/silo-comic-pages/releases/download/v0.1.0/plugin-linux-arm64"
+          "checksum": "f0f610354bf660db79da5c27fe14d3eb43c035f5d644ea215b0663b442094f60",
+          "url": "https://github.com/crowquillx/silo-comic-pages/releases/download/v0.1.1/plugin-linux-arm64"
         }
       },
       "manifest": {
         "plugin_id": "dev.crowquillx.comic-pages",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -179,7 +179,7 @@
                   "key": "max_cache_bytes",
                   "label": "Maximum cache bytes",
                   "control": 4,
-                  "placeholder": "4294967296"
+                  "placeholder": "2147483648"
                 },
                 {
                   "key": "max_entries",
