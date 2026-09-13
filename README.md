@@ -41,6 +41,7 @@ Until a Silo release includes that host, use Silo Server from its current
 | --- | --- | --- | --- |
 | [AniList Sync](https://github.com/crowquillx/silo-anilist-sync) | `dev.crowquillx.anilist-sync` | Synchronizes completed anime playback and optional manual watched marks with AniList, and imports mapped AniList watch history. | Linux amd64, Linux arm64, macOS arm64 |
 | [ShokoAnime VFS](https://github.com/crowquillx/silo-shoko-plugin) | `silo.shokoanime` | Builds a group-aware Shoko virtual filesystem and provides typed metadata and artwork to Silo. | Linux amd64, Linux arm64, macOS arm64 |
+| [Comic Pages](https://github.com/crowquillx/silo-comic-pages) | `dev.crowquillx.comic-pages` | Extracts CBR/CBZ comic pages on the server for Aidoku, with access checks and an extraction cache. | Linux amd64, Linux arm64 |
 
 ## How the catalog updates
 

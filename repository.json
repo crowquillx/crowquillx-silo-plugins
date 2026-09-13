@@ -120,6 +120,138 @@
       }
     },
     {
+      "binaries": {
+        "linux/amd64": {
+          "checksum": "a5f49647450babefb6a4a095278d6a447ae9c050812aecca71578d9e021a10f5",
+          "url": "https://github.com/crowquillx/silo-comic-pages/releases/download/v0.1.0/plugin-linux-amd64"
+        },
+        "linux/arm64": {
+          "checksum": "51f0409219b4cafa87ec2d352f3dcfc389f39b1c1ad7c870ea729dcbdce96358",
+          "url": "https://github.com/crowquillx/silo-comic-pages/releases/download/v0.1.0/plugin-linux-arm64"
+        }
+      },
+      "manifest": {
+        "plugin_id": "dev.crowquillx.comic-pages",
+        "version": "0.1.0",
+        "silo_api_version": "v1",
+        "supported_platforms": [
+          {
+            "os": "linux",
+            "arch": "amd64"
+          },
+          {
+            "os": "linux",
+            "arch": "arm64"
+          }
+        ],
+        "capabilities": [
+          {
+            "type": "http_routes.v1",
+            "id": "comic-pages",
+            "display_name": "Comic Pages",
+            "description": "Extracts pages from authenticated Silo comic archives."
+          }
+        ],
+        "global_config_schema": [
+          {
+            "key": "connection",
+            "title": "Silo connection",
+            "description": "The Silo origin and a private cache directory.",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\",\"minLength\":1},\"cache_dir\":{\"type\":\"string\",\"minLength\":1},\"max_cache_bytes\":{\"type\":\"integer\",\"minimum\":1},\"max_entries\":{\"type\":\"integer\",\"minimum\":1},\"max_page_bytes\":{\"type\":\"integer\",\"minimum\":1},\"max_total_bytes\":{\"type\":\"integer\",\"minimum\":1},\"max_archive_bytes\":{\"type\":\"integer\",\"minimum\":1},\"max_dictionary_bytes\":{\"type\":\"integer\",\"minimum\":1}},\"required\":[\"base_url\",\"cache_dir\"],\"additionalProperties\":false}",
+            "required": true,
+            "admin_form": {
+              "fields": [
+                {
+                  "key": "base_url",
+                  "label": "Silo base URL",
+                  "control": 1,
+                  "placeholder": "https://silo.example",
+                  "required": true
+                },
+                {
+                  "key": "cache_dir",
+                  "label": "Private cache directory",
+                  "control": 1,
+                  "placeholder": "/var/lib/silo/comic-pages-cache",
+                  "required": true
+                },
+                {
+                  "key": "max_cache_bytes",
+                  "label": "Maximum cache bytes",
+                  "control": 4,
+                  "placeholder": "4294967296"
+                },
+                {
+                  "key": "max_entries",
+                  "label": "Maximum archive entries",
+                  "control": 4,
+                  "placeholder": "2048"
+                },
+                {
+                  "key": "max_page_bytes",
+                  "label": "Maximum page bytes",
+                  "control": 4,
+                  "placeholder": "33554432"
+                },
+                {
+                  "key": "max_total_bytes",
+                  "label": "Maximum extracted bytes",
+                  "control": 4,
+                  "placeholder": "1073741824"
+                },
+                {
+                  "key": "max_archive_bytes",
+                  "label": "Maximum archive bytes",
+                  "control": 4,
+                  "placeholder": "536870912"
+                },
+                {
+                  "key": "max_dictionary_bytes",
+                  "label": "Maximum RAR dictionary bytes",
+                  "control": 4,
+                  "placeholder": "67108864"
+                }
+              ]
+            }
+          }
+        ],
+        "http_routes": [
+          {
+            "id": "health",
+            "method": "GET",
+            "path": "/v1/health",
+            "access": "authenticated"
+          },
+          {
+            "id": "pages",
+            "method": "POST",
+            "path": "/v1/pages",
+            "access": "authenticated"
+          },
+          {
+            "id": "page",
+            "method": "POST",
+            "path": "/v1/page/*",
+            "access": "authenticated"
+          }
+        ],
+        "presentation": {
+          "display_name": "Comic Pages",
+          "summary": "Read CBR/RAR comics in Aidoku using server-side page extraction.",
+          "description_markdown": "Extracts comic pages from RAR4, RAR5 and ZIP archives using the reader's existing Silo access. Supports solid RAR archives, natural page ordering and a bounded extraction cache. Linux amd64 and arm64. No media filesystem mapping or proprietary unrar executable is required.",
+          "setup_markdown": "Configure the Silo base URL reachable from the plugin and a dedicated writable cache directory. Update the Aidoku Silo source to v5 or newer, then enter this installation's ID in Reading \u2192 Comic Pages plugin installation ID. See the README for resource limits.",
+          "homepage_url": "https://github.com/crowquillx/silo-comic-pages",
+          "source_url": "https://github.com/crowquillx/silo-comic-pages",
+          "support_url": "https://github.com/crowquillx/silo-comic-pages/issues",
+          "changelog_url": "https://github.com/crowquillx/silo-comic-pages/releases",
+          "publisher_name": "crowquillx",
+          "publisher_url": "https://github.com/crowquillx",
+          "license_spdx": "MIT"
+        }
+      },
+      "repo_url": "https://github.com/crowquillx/silo-comic-pages"
+    },
+    {
       "manifest": {
         "plugin_id": "silo.shokoanime",
         "version": "0.1.2",
