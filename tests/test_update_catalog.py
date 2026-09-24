@@ -69,6 +69,25 @@ class CatalogAggregationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "binary URL is outside"):
             validate_entry(entry, self.source)
 
+    def test_normalizes_runtime_form_enums_for_catalog_json(self):
+        self.entry["manifest"]["global_config_schema"] = [{"admin_form": {"fields": [
+            {"key": "token", "control": "ADMIN_FORM_CONTROL_PASSWORD", "secret": True},
+            {"key": "enabled", "control": 5},
+        ]}}]
+        result = validate_entry(self.entry, self.source)
+        fields = result["manifest"]["global_config_schema"][0]["admin_form"]["fields"]
+        self.assertEqual(3, fields[0]["control"])
+        self.assertTrue(fields[0]["secret"])
+        self.assertEqual(5, fields[1]["control"])
+        self.assertEqual("ADMIN_FORM_CONTROL_PASSWORD", self.entry["manifest"]["global_config_schema"][0]["admin_form"]["fields"][0]["control"])
+
+    def test_rejects_unknown_symbolic_form_control(self):
+        self.entry["manifest"]["user_config_schema"] = [{"admin_form": {"fields": [
+            {"key": "bad", "control": "TYPO"},
+        ]}}]
+        with self.assertRaisesRegex(ValueError, "unknown admin form control"):
+            validate_entry(self.entry, self.source)
+
     def test_rejects_duplicate_configured_plugin(self):
         with self.assertRaisesRegex(ValueError, "duplicate configured plugin ID"):
             aggregate([self.source, self.source], lambda _: {"plugins": [self.entry]})

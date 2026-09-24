@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 
 import argparse
+import copy
 import json
 import re
 import sys
 import urllib.request
 from pathlib import Path
 from typing import Any, Callable
+
+FORM_CONTROLS = {f"ADMIN_FORM_CONTROL_{name}": value for value, name in enumerate(
+    ("UNSPECIFIED", "TEXT", "TEXTAREA", "PASSWORD", "NUMBER", "SWITCH", "SELECT", "MULTI_SELECT")
+)}
 
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 VERSION = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+(?:[.-][0-9A-Za-z.-]+)?$")
@@ -76,7 +81,18 @@ def validate_entry(entry: Any, source: dict[str, str]) -> dict[str, Any]:
             raise ValueError(f"binary URL is outside {source['repo_url']} for {platform}")
         if not isinstance(checksum, str) or not SHA256.fullmatch(checksum):
             raise ValueError(f"invalid binary checksum for {source['plugin_id']} {platform}")
-    return entry
+    # Silo's repository reader uses encoding/json, whose protobuf enum fields
+    # require numbers. Runtime manifests may use protojson's symbolic names.
+    normalized = copy.deepcopy(entry)
+    for scope in ("global_config_schema", "user_config_schema"):
+        for schema in normalized["manifest"].get(scope, []):
+            for field in (schema.get("admin_form") or {}).get("fields", []):
+                control = field.get("control")
+                if isinstance(control, str):
+                    if control not in FORM_CONTROLS:
+                        raise ValueError(f"unknown admin form control {control!r}")
+                    field["control"] = FORM_CONTROLS[control]
+    return normalized
 
 
 def aggregate(sources: list[dict[str, str]], fetcher: Callable[[str], dict[str, Any]] = fetch_json) -> dict[str, Any]:
