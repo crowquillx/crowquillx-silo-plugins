@@ -14,6 +14,16 @@
       "plugin_id": "dev.crowquillx.comic-pages",
       "repo_url": "https://github.com/crowquillx/silo-comic-pages",
       "index_url": "https://github.com/crowquillx/silo-comic-pages/releases/latest/download/repository.json"
+    },
+    {
+      "plugin_id": "dev.crowquillx.theme-songs",
+      "repo_url": "https://github.com/crowquillx/silo-theme-songs",
+      "index_url": "https://github.com/crowquillx/silo-theme-songs/releases/latest/download/repository.json"
+    },
+    {
+      "plugin_id": "dev.crowquillx.anime-themes",
+      "repo_url": "https://github.com/crowquillx/silo-anime-themes",
+      "index_url": "https://github.com/crowquillx/silo-anime-themes/releases/latest/download/repository.json"
     }
   ]
 }
