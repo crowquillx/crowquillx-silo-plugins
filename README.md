@@ -1,62 +1,39 @@
 # Crowquillx Silo Plugins
 
-An unofficial catalog of plugins for
-[Silo Server](https://github.com/Silo-Server/silo-server) maintained by
-[crowquillx](https://github.com/crowquillx). This repository is independent of
-the Silo Server project and is not an official Silo catalog.
+A catalog of Silo plugins maintained by [crowquillx](https://github.com/crowquillx).
 
-## Add the catalog to Silo
+## Install
 
-1. Sign in to Silo as an administrator.
-2. Open **Administration → Plugins**.
-3. Select the **Catalog** tab.
-4. Under **Repositories**, select **Add**.
-5. Enter a recognizable name such as `Crowquillx plugins`.
-6. Enter this repository URL:
+1. Open **Administration → Plugins → Catalog** in Silo.
+2. Under **Repositories**, select **Add** and enter this URL:
 
-   ```text
-   https://raw.githubusercontent.com/crowquillx/crowquillx-silo-plugins/main/repository.json
-   ```
+```text
+https://raw.githubusercontent.com/crowquillx/crowquillx-silo-plugins/main/repository.json
+```
 
-7. Select **Add**. The plugins below will appear in Silo's catalog.
-8. Select **Install** on the desired plugin, then configure it from the
-   **Installed** tab.
+3. Install a plugin from the catalog. Open its settings under **Installed** and follow the setup instructions in its README.
 
-Silo installs the binary matching its operating system and architecture and
-verifies the published SHA-256 checksum. Repository installations use Silo's
-automatic update policy by default; administrators can select notification-only
-or manual updates for an installation.
+| Plugin | What it does |
+| --- | --- |
+| [Theme Songs](https://github.com/crowquillx/silo-theme-songs) | Downloads movie and series themes as MP3. |
+| [AnimeThemes](https://github.com/crowquillx/silo-anime-themes) | Downloads anime opening and ending themes as MP3. |
+| [AniList Sync](https://github.com/crowquillx/silo-anilist-sync) | Syncs anime watch history with AniList. |
+| [ShokoAnime VFS](https://github.com/crowquillx/silo-shoko-plugin) | Builds a Shoko media library with metadata and artwork. |
+| [Comic Pages](https://github.com/crowquillx/silo-comic-pages) | Serves comic pages to the Silo Aidoku source. |
 
-## Compatibility
+## Build
 
-AniList Sync `v0.3.x` requires a Silo build containing the plugin-backed watch
-provider host added by
-[Silo Server PR #475](https://github.com/Silo-Server/silo-server/pull/475).
-Until a Silo release includes that host, use Silo Server from its current
-`main` branch.
+Requires Python 3. Plugin sources are listed in `sources.json`.
 
-## Included plugins
+```sh
+python3 -m unittest discover -s tests
+python3 scripts/update_catalog.py
+```
 
-| Plugin | Plugin ID | Description | Platforms |
-| --- | --- | --- | --- |
-| [AniList Sync](https://github.com/crowquillx/silo-anilist-sync) | `dev.crowquillx.anilist-sync` | Synchronizes completed anime playback and optional manual watched marks with AniList, and imports mapped AniList watch history. | Linux amd64, Linux arm64, macOS arm64 |
-| [ShokoAnime VFS](https://github.com/crowquillx/silo-shoko-plugin) | `silo.shokoanime` | Builds a group-aware Shoko virtual filesystem and provides typed metadata and artwork to Silo. | Linux amd64, Linux arm64, macOS arm64 |
-| [Comic Pages](https://github.com/crowquillx/silo-comic-pages) | `dev.crowquillx.comic-pages` | Extracts CBR/CBZ comic pages on the server for Aidoku, with access checks and an extraction cache. | Linux amd64, Linux arm64 |
-| [Theme Songs](https://github.com/crowquillx/silo-theme-songs) | `dev.crowquillx.theme-songs` | Downloads movie and series theme audio from ThemerrDB or selected URLs, with ownership checks and Autoscan discovery. | Linux amd64, Linux arm64 |
-| [AnimeThemes](https://github.com/crowquillx/silo-anime-themes) | `dev.crowquillx.anime-themes` | Maps anime seasons through AniBridge and Anime-Lists and downloads their opening and ending themes. | Linux amd64, Linux arm64 |
+The output is `repository.json`. The catalog workflow also checks for plugin releases every 15 minutes.
 
-## How the catalog updates
+## Acknowledgments
 
-`sources.json` lists each trusted plugin repository and its stable release
-index. The catalog workflow checks those indexes every 15 minutes, validates
-plugin identity, version, platform coverage, release URLs, and checksum format,
-then updates `repository.json` only when content changes.
+- [Silo Server](https://github.com/Silo-Server/silo-server) for the plugin platform.
 
-A plugin must publish a release-level `repository.json` containing its
-manifest, platform binaries, and SHA-256 checksums before it can be added to
-`sources.json`. Duplicate plugin IDs, mismatched repository URLs, missing
-platform binaries, and invalid checksums are rejected.
-
-## License
-
-MIT. See [`LICENSE`](LICENSE).
+[MIT license](LICENSE).
