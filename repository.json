@@ -190,8 +190,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.anime-themes",
-        "version": "0.1.5",
-        "checksum": "1efce1f2fc7b87acb8c733dcd44f5c47aa9c9258b5432f77915052eacaf4ddbf",
+        "version": "0.1.6",
+        "checksum": "1d7c827f38fa17c30830d6d8ba5add2bea9ddbaca9fe4cf290ea23ac667105df",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -207,7 +207,7 @@
           "display_name": "AnimeThemes",
           "summary": "Downloads opening and ending audio into the matching anime season directories.",
           "description_markdown": "Downloads opening and ending audio into the matching anime season directories. Preview ownership and source choices before downloading. Existing audio is preserved. New downloads are saved as MP3. Non-MP3 sources require FFmpeg with libmp3lame; existing MP3 audio is kept without re-encoding.",
-          "setup_markdown": "Configure the Silo URL, a dedicated administrator API key and primary profile, writable mounts, selected libraries, and persistent state. Keep preview only enabled for the first task run. Enable this plugin's themes Autoscan source with identity path rewrites, or select manual scans. Run preview, review destinations, then enable downloads. The README contains configuration examples. Install ffprobe and FFmpeg with libmp3lame in the plugin environment. Set provider.ffmpeg if FFmpeg is not on PATH.",
+          "setup_markdown": "Configure the Silo URL, a dedicated administrator API key and primary profile, writable mounts, selected libraries, and persistent state. Keep preview only enabled for the first task run. Enable this plugin's themes Autoscan source with identity path rewrites, or select manual scans. Run preview, review destinations, then enable downloads. The README explains how to edit Provider settings (JSON), preserve existing values, save the configuration and run Preview. Install ffprobe and FFmpeg with libmp3lame in the plugin environment. Set provider.ffmpeg if FFmpeg is not on PATH.",
           "homepage_url": "https://github.com/crowquillx/silo-anime-themes",
           "source_url": "https://github.com/crowquillx/silo-anime-themes",
           "support_url": "https://github.com/crowquillx/silo-anime-themes/issues",
@@ -353,12 +353,12 @@
       "repo_url": "https://github.com/crowquillx/silo-anime-themes",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.5/plugin-linux-amd64",
-          "checksum": "1efce1f2fc7b87acb8c733dcd44f5c47aa9c9258b5432f77915052eacaf4ddbf"
+          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.6/plugin-linux-amd64",
+          "checksum": "1d7c827f38fa17c30830d6d8ba5add2bea9ddbaca9fe4cf290ea23ac667105df"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.5/plugin-linux-arm64",
-          "checksum": "dcdc3382d099510f1e4c2cfbdb8aa11786ab957be3d6dc93270ec0ff795ab335"
+          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.6/plugin-linux-arm64",
+          "checksum": "ca4b3b6e14403ab33e865258e3e0dfc03c01d50c88e07b0074f6e17c0d1c207b"
         }
       }
     },
@@ -506,8 +506,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.theme-songs",
-        "version": "0.1.5",
-        "checksum": "69a595fbcdedd72c387356d0e175e0a429e6c0e451af751a3a3c68c4589ab597",
+        "version": "0.1.6",
+        "checksum": "dd5e1c4e378f2cd32b771912853d3c3e5f13d712896c2131b2a7a9e36f9ee0ab",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -523,7 +523,7 @@
           "display_name": "Theme Songs",
           "summary": "Downloads movie and series theme audio from exact ThemerrDB matches and selected URLs.",
           "description_markdown": "Downloads movie and series theme audio from exact ThemerrDB matches and selected URLs. Preview ownership and source choices before downloading. Existing audio is preserved. New downloads are saved as MP3. Non-MP3 sources require FFmpeg with libmp3lame; existing MP3 audio is kept without re-encoding.",
-          "setup_markdown": "Configure the Silo URL, a dedicated administrator API key and primary profile, writable mounts, selected libraries, and persistent state. Keep preview only enabled for the first task run. Enable this plugin's themes Autoscan source with identity path rewrites, or select manual scans. Run preview, review destinations, then enable downloads. The README contains configuration examples. Install ffprobe and FFmpeg with libmp3lame in the plugin environment. Set provider.ffmpeg if FFmpeg is not on PATH.",
+          "setup_markdown": "Configure the Silo URL, a dedicated administrator API key and primary profile, writable mounts, selected libraries, and persistent state. Keep preview only enabled for the first task run. Enable this plugin's themes Autoscan source with identity path rewrites, or select manual scans. Run preview, review destinations, then enable downloads. The README explains how to edit Provider settings (JSON), preserve existing values, save the configuration and run Preview. Install ffprobe and FFmpeg with libmp3lame in the plugin environment. Set provider.ffmpeg if FFmpeg is not on PATH.",
           "homepage_url": "https://github.com/crowquillx/silo-theme-songs",
           "source_url": "https://github.com/crowquillx/silo-theme-songs",
           "support_url": "https://github.com/crowquillx/silo-theme-songs/issues",
@@ -669,12 +669,12 @@
       "repo_url": "https://github.com/crowquillx/silo-theme-songs",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.5/plugin-linux-amd64",
-          "checksum": "69a595fbcdedd72c387356d0e175e0a429e6c0e451af751a3a3c68c4589ab597"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.6/plugin-linux-amd64",
+          "checksum": "dd5e1c4e378f2cd32b771912853d3c3e5f13d712896c2131b2a7a9e36f9ee0ab"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.5/plugin-linux-arm64",
-          "checksum": "1427ed9fccdfff6a3eff9dfe3d58d4704268b750550db3557248c64bf067d310"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.6/plugin-linux-arm64",
+          "checksum": "c7e44f98f2b397db247314e0d466d43f3ced14749b319ea9cb4a8901203441df"
         }
       }
     },
