@@ -505,6 +505,137 @@
     },
     {
       "manifest": {
+        "plugin_id": "dev.crowquillx.light-novel-metadata",
+        "version": "0.1.0",
+        "checksum": "e4b840d0df93d191cc87e0e47a58fd154c82303afce5c8b1f5befa914f308f08",
+        "silo_api_version": "v1",
+        "supported_platforms": [
+          {
+            "os": "linux",
+            "arch": "amd64"
+          },
+          {
+            "os": "linux",
+            "arch": "arm64"
+          },
+          {
+            "os": "darwin",
+            "arch": "arm64"
+          }
+        ],
+        "presentation": {
+          "display_name": "Light Novel Metadata",
+          "summary": "Matches light novel volumes in ebook libraries using RanobeDB and adds high-resolution covers.",
+          "description_markdown": "Matches each light novel volume to [RanobeDB](https://ranobedb.org), a light novel database, by ISBN or title. Adds English and Japanese titles, descriptions, release dates, publishers, authors, genres, and series order. Covers come from Amazon, J-Novel Club, or Open Library when a high-resolution copy exists, falling back to RanobeDB. Series banners come from AniList and J-Novel Club.",
+          "setup_markdown": "Open the ebook library that holds your light novels, add **Light Novel Metadata** to its metadata providers, and move it above **Ebook Metadata**. The plugin is not enabled for ebook libraries automatically, so general ebook libraries are unaffected. Titles and descriptions follow each book's language unless **Preferred language** is set.",
+          "homepage_url": "https://github.com/crowquillx/silo-light-novel-metadata",
+          "source_url": "https://github.com/crowquillx/silo-light-novel-metadata",
+          "support_url": "https://github.com/crowquillx/silo-light-novel-metadata/issues",
+          "changelog_url": "https://github.com/crowquillx/silo-light-novel-metadata/releases",
+          "publisher_name": "crowquillx",
+          "publisher_url": "https://github.com/crowquillx",
+          "license_spdx": "MIT"
+        },
+        "capabilities": [
+          {
+            "type": "metadata_provider.v1",
+            "id": "light-novel-metadata",
+            "display_name": "Light Novel Metadata",
+            "description": "Light novel volume metadata from RanobeDB, with high-resolution covers from Amazon, J-Novel Club, and Open Library, and series banners from AniList.",
+            "metadata": {
+              "default_priority": {
+                "ebook": 1
+              },
+              "default_enabled": false,
+              "lookup_provider_ids": [
+                "isbn"
+              ]
+            }
+          }
+        ],
+        "global_config_schema": [
+          {
+            "key": "preferred_language",
+            "title": "Preferred language",
+            "description": "Language code for titles, descriptions, and covers, such as en or ja. Empty follows each book's language and falls back to English.",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"string\"}}}",
+            "admin_form": {
+              "fields": [
+                {
+                  "key": "value",
+                  "label": "Language code",
+                  "control": 1
+                }
+              ]
+            }
+          },
+          {
+            "key": "cover_sources",
+            "title": "Cover sources",
+            "description": "Comma-separated cover sources in order of preference: amazon, jnovelclub, openlibrary, ranobedb. Empty uses that order. Remove a source to stop requesting covers from it.",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"string\"}}}",
+            "admin_form": {
+              "fields": [
+                {
+                  "key": "value",
+                  "label": "Sources",
+                  "control": 1
+                }
+              ]
+            }
+          },
+          {
+            "key": "enable_banners",
+            "title": "Series banners",
+            "description": "Use AniList or J-Novel Club series banners as backdrops.",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"boolean\"}}}",
+            "admin_form": {
+              "fields": [
+                {
+                  "key": "value",
+                  "label": "Add banners",
+                  "control": 5,
+                  "default_value": true
+                }
+              ]
+            }
+          },
+          {
+            "key": "native_name_order",
+            "title": "Japanese name order",
+            "description": "Credit Japanese authors family name first, as RanobeDB lists them (Kawahara Reki). Off uses the given-name-first order of English editions (Reki Kawahara).",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"boolean\"}}}",
+            "admin_form": {
+              "fields": [
+                {
+                  "key": "value",
+                  "label": "Family name first",
+                  "control": 5,
+                  "default_value": false
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "repo_url": "https://github.com/crowquillx/silo-light-novel-metadata",
+      "binaries": {
+        "linux/amd64": {
+          "url": "https://github.com/crowquillx/silo-light-novel-metadata/releases/download/v0.1.0/plugin-linux-amd64",
+          "checksum": "e4b840d0df93d191cc87e0e47a58fd154c82303afce5c8b1f5befa914f308f08"
+        },
+        "linux/arm64": {
+          "url": "https://github.com/crowquillx/silo-light-novel-metadata/releases/download/v0.1.0/plugin-linux-arm64",
+          "checksum": "36f3a73a28db14d574878d434d0434093641b717f5f522bcb3845de527a7623d"
+        },
+        "darwin/arm64": {
+          "url": "https://github.com/crowquillx/silo-light-novel-metadata/releases/download/v0.1.0/plugin-darwin-arm64",
+          "checksum": "50f9c631b46927ff783181f864217dd27e868cc8b08c649ab7a86e498c1f263d"
+        }
+      }
+    },
+    {
+      "manifest": {
         "plugin_id": "dev.crowquillx.theme-songs",
         "version": "0.1.7",
         "checksum": "20bd8e4b43789b263ec7103181b077e00a6f081e139b6fff0f335ec9ffd45919",
