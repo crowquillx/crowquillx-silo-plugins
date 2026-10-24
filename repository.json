@@ -190,8 +190,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.anime-themes",
-        "version": "0.1.10",
-        "checksum": "a586e79c5096fce713a05b0611df356dc1cd5fc635b4d50f7603d5d4f72a8590",
+        "version": "0.1.11",
+        "checksum": "3c5bf7589ca909028f7798bfd44626c4c02d3916a53645176c7ec8c58a217639",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -253,7 +253,7 @@
             "key": "settings",
             "title": "AnimeThemes settings",
             "description": "Connection, destination policy, and provider selection.",
-            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\"},\"api_key\":{\"type\":\"string\",\"minLength\":1},\"profile_id\":{\"type\":\"string\"},\"state_dir\":{\"type\":\"string\"},\"library_ids\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"exclude_items\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"anime_library_ids\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"preview_only\":{\"type\":\"boolean\",\"default\":true},\"manual_refresh\":{\"type\":\"boolean\",\"default\":false},\"source_generation\":{\"type\":\"string\",\"default\":\"1\"},\"ffprobe\":{\"type\":\"string\",\"default\":\"/usr/lib/jellyfin-ffmpeg/ffprobe\"},\"max_downloads\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":100,\"default\":10},\"destinations\":{\"type\":\"object\",\"properties\":{\"allowed_roots\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":1},\"path_mappings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"server\":{\"type\":\"string\"},\"local\":{\"type\":\"string\"}},\"required\":[\"server\",\"local\"],\"additionalProperties\":false}},\"single_season_flat_fallback\":{\"type\":\"boolean\",\"default\":false},\"destination_overrides\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}}},\"additionalProperties\":false},\"provider\":{\"type\":\"object\"}},\"required\":[\"api_key\"],\"additionalProperties\":false}",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\"},\"api_key\":{\"type\":\"string\",\"minLength\":1},\"profile_id\":{\"type\":\"string\"},\"state_dir\":{\"type\":\"string\"},\"library_ids\":{\"type\":[\"array\",\"string\"],\"items\":{\"type\":\"string\"}},\"exclude_items\":{\"type\":[\"array\",\"string\"],\"items\":{\"type\":\"string\"}},\"anime_library_ids\":{\"type\":[\"array\",\"string\"],\"items\":{\"type\":\"string\"}},\"preview_only\":{\"type\":\"boolean\",\"default\":true},\"manual_refresh\":{\"type\":\"boolean\",\"default\":false},\"source_generation\":{\"type\":\"string\",\"default\":\"1\"},\"ffprobe\":{\"type\":\"string\",\"default\":\"/usr/lib/jellyfin-ffmpeg/ffprobe\"},\"max_downloads\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":100,\"default\":10},\"destinations\":{\"type\":[\"object\",\"string\"],\"properties\":{\"allowed_roots\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":1},\"path_mappings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"server\":{\"type\":\"string\"},\"local\":{\"type\":\"string\"}},\"required\":[\"server\",\"local\"],\"additionalProperties\":false}},\"single_season_flat_fallback\":{\"type\":\"boolean\",\"default\":false},\"destination_overrides\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}}},\"additionalProperties\":false},\"provider\":{\"type\":[\"object\",\"string\"]}},\"required\":[\"api_key\"],\"additionalProperties\":false}",
             "required": false,
             "admin_form": {
               "fields": [
@@ -280,17 +280,17 @@
                 },
                 {
                   "key": "library_ids",
-                  "label": "Selected library IDs (JSON)",
+                  "label": "Selected library IDs (comma-separated)",
                   "control": 2
                 },
                 {
                   "key": "exclude_items",
-                  "label": "Excluded item IDs (JSON)",
+                  "label": "Excluded item IDs (comma-separated)",
                   "control": 2
                 },
                 {
                   "key": "anime_library_ids",
-                  "label": "Anime-managed library IDs (JSON)",
+                  "label": "Anime-managed library IDs (comma-separated)",
                   "control": 2
                 },
                 {
@@ -353,12 +353,12 @@
       "repo_url": "https://github.com/crowquillx/silo-anime-themes",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.10/plugin-linux-amd64",
-          "checksum": "a586e79c5096fce713a05b0611df356dc1cd5fc635b4d50f7603d5d4f72a8590"
+          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.11/plugin-linux-amd64",
+          "checksum": "3c5bf7589ca909028f7798bfd44626c4c02d3916a53645176c7ec8c58a217639"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.10/plugin-linux-arm64",
-          "checksum": "3216e8512d397bd0a58d544e255329a41c1debc168af82d3288b5c237681a6f6"
+          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.11/plugin-linux-arm64",
+          "checksum": "9db73d4bca3ed4617a2976a8622774fd4a14f65dd93a81bfaf7022136b66af68"
         }
       }
     },
@@ -637,8 +637,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.theme-songs",
-        "version": "0.1.12",
-        "checksum": "bc88674893980a80109a5642cf6e914b97fdc572de8a78c521b9338f0d8afdf3",
+        "version": "0.1.13",
+        "checksum": "ffc90beae0588f38b5575405efdef7c507c8984c86b2ebebef057a2cda5464c2",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -700,7 +700,7 @@
             "key": "settings",
             "title": "Theme Songs settings",
             "description": "Connection, destination policy, and provider selection.",
-            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\"},\"api_key\":{\"type\":\"string\",\"minLength\":1},\"profile_id\":{\"type\":\"string\"},\"state_dir\":{\"type\":\"string\"},\"library_ids\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"exclude_items\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"anime_library_ids\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"preview_only\":{\"type\":\"boolean\",\"default\":true},\"manual_refresh\":{\"type\":\"boolean\",\"default\":false},\"source_generation\":{\"type\":\"string\",\"default\":\"1\"},\"ffprobe\":{\"type\":\"string\",\"default\":\"/usr/lib/jellyfin-ffmpeg/ffprobe\"},\"max_downloads\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":100,\"default\":10},\"destinations\":{\"type\":\"object\",\"properties\":{\"allowed_roots\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":1},\"path_mappings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"server\":{\"type\":\"string\"},\"local\":{\"type\":\"string\"}},\"required\":[\"server\",\"local\"],\"additionalProperties\":false}},\"single_season_flat_fallback\":{\"type\":\"boolean\",\"default\":false},\"destination_overrides\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}}},\"additionalProperties\":false},\"provider\":{\"type\":\"object\"}},\"required\":[\"api_key\"],\"additionalProperties\":false}",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\"},\"api_key\":{\"type\":\"string\",\"minLength\":1},\"profile_id\":{\"type\":\"string\"},\"state_dir\":{\"type\":\"string\"},\"library_ids\":{\"type\":[\"array\",\"string\"],\"items\":{\"type\":\"string\"}},\"exclude_items\":{\"type\":[\"array\",\"string\"],\"items\":{\"type\":\"string\"}},\"anime_library_ids\":{\"type\":[\"array\",\"string\"],\"items\":{\"type\":\"string\"}},\"preview_only\":{\"type\":\"boolean\",\"default\":true},\"manual_refresh\":{\"type\":\"boolean\",\"default\":false},\"source_generation\":{\"type\":\"string\",\"default\":\"1\"},\"ffprobe\":{\"type\":\"string\",\"default\":\"/usr/lib/jellyfin-ffmpeg/ffprobe\"},\"max_downloads\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":100,\"default\":10},\"destinations\":{\"type\":[\"object\",\"string\"],\"properties\":{\"allowed_roots\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":1},\"path_mappings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"server\":{\"type\":\"string\"},\"local\":{\"type\":\"string\"}},\"required\":[\"server\",\"local\"],\"additionalProperties\":false}},\"single_season_flat_fallback\":{\"type\":\"boolean\",\"default\":false},\"destination_overrides\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}}},\"additionalProperties\":false},\"provider\":{\"type\":[\"object\",\"string\"]}},\"required\":[\"api_key\"],\"additionalProperties\":false}",
             "required": false,
             "admin_form": {
               "fields": [
@@ -727,17 +727,17 @@
                 },
                 {
                   "key": "library_ids",
-                  "label": "Selected library IDs (JSON)",
+                  "label": "Selected library IDs (comma-separated)",
                   "control": 2
                 },
                 {
                   "key": "exclude_items",
-                  "label": "Excluded item IDs (JSON)",
+                  "label": "Excluded item IDs (comma-separated)",
                   "control": 2
                 },
                 {
                   "key": "anime_library_ids",
-                  "label": "Anime-managed library IDs (JSON)",
+                  "label": "Anime-managed library IDs (comma-separated)",
                   "control": 2
                 },
                 {
@@ -800,12 +800,12 @@
       "repo_url": "https://github.com/crowquillx/silo-theme-songs",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.12/plugin-linux-amd64",
-          "checksum": "bc88674893980a80109a5642cf6e914b97fdc572de8a78c521b9338f0d8afdf3"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.13/plugin-linux-amd64",
+          "checksum": "ffc90beae0588f38b5575405efdef7c507c8984c86b2ebebef057a2cda5464c2"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.12/plugin-linux-arm64",
-          "checksum": "bd99a991b6596d5094fac794d6f57b17f3bfaa9ab6982ef6cf6ed6f4dbd7ce6d"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.13/plugin-linux-arm64",
+          "checksum": "d1c9d3161cc9f3b97dcae13d338b319076520cfdfbcdd96847160f2699343691"
         }
       }
     },
