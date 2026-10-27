@@ -190,8 +190,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.anime-themes",
-        "version": "0.1.12",
-        "checksum": "2a2a0d08d7c132f27cbd0b566b2707092dc4b8e9c5344985fae9d4faaab79386",
+        "version": "0.1.13",
+        "checksum": "2382309bd5e0848db779e42c63d94b52f8ceb22c5bfcb500621ab6ae45b35bd8",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -353,12 +353,12 @@
       "repo_url": "https://github.com/crowquillx/silo-anime-themes",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.12/plugin-linux-amd64",
-          "checksum": "2a2a0d08d7c132f27cbd0b566b2707092dc4b8e9c5344985fae9d4faaab79386"
+          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.13/plugin-linux-amd64",
+          "checksum": "2382309bd5e0848db779e42c63d94b52f8ceb22c5bfcb500621ab6ae45b35bd8"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.12/plugin-linux-arm64",
-          "checksum": "11bba89ad99512582f9766fa048a3c6efabc1e4aaee12c1ebf9952bf33976e98"
+          "url": "https://github.com/crowquillx/silo-anime-themes/releases/download/v0.1.13/plugin-linux-arm64",
+          "checksum": "4f68275170c0453b5d28e42598225fd324dafd9dbddfc4c479a9ee8071a18cc2"
         }
       }
     },
@@ -637,8 +637,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.theme-songs",
-        "version": "0.1.14",
-        "checksum": "ce1887af1fa33571b8336c3a63863e2094ccb9a45e7e5ca678ee7a11b25e8a7e",
+        "version": "0.1.15",
+        "checksum": "68e41b0f07e84e20cd2bba92665a0f33a8ac6942e73dfa101e694f43eabbe642",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -800,12 +800,12 @@
       "repo_url": "https://github.com/crowquillx/silo-theme-songs",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.14/plugin-linux-amd64",
-          "checksum": "ce1887af1fa33571b8336c3a63863e2094ccb9a45e7e5ca678ee7a11b25e8a7e"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.15/plugin-linux-amd64",
+          "checksum": "68e41b0f07e84e20cd2bba92665a0f33a8ac6942e73dfa101e694f43eabbe642"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.14/plugin-linux-arm64",
-          "checksum": "19bcc1abf355e2292e46c47fb908edc903cd1644ca03c0539fcdaed20aa8b6a0"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.1.15/plugin-linux-arm64",
+          "checksum": "d1efba8f039403a3daac4fe84121f74875bc07a43dd1fe46d9a90e87aad0580c"
         }
       }
     },
