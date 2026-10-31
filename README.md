@@ -15,8 +15,7 @@ https://raw.githubusercontent.com/crowquillx/crowquillx-silo-plugins/main/reposi
 
 | Plugin | What it does |
 | --- | --- |
-| [Theme Songs](https://github.com/crowquillx/silo-theme-songs) | Downloads movie and series themes as MP3. |
-| [AnimeThemes](https://github.com/crowquillx/silo-anime-themes) | Downloads anime opening and ending themes as MP3. |
+| [Theme Songs](https://github.com/crowquillx/silo-theme-songs) | Downloads movie and series themes, and anime openings and endings, as MP3. |
 | [AniList Sync](https://github.com/crowquillx/silo-anilist-sync) | Syncs anime watch history with AniList. |
 | [ShokoAnime VFS](https://github.com/crowquillx/silo-shoko-plugin) | Builds a Shoko media library with metadata and artwork. |
 | [Comic Pages](https://github.com/crowquillx/silo-comic-pages) | Serves comic pages to the Silo Aidoku source. |
