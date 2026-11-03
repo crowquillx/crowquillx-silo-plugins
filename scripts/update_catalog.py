@@ -29,11 +29,12 @@ def load_sources(path: Path) -> list[dict[str, str]]:
     if not isinstance(sources, list) or not sources:
         raise ValueError("sources.json must contain a non-empty sources array")
     required = {"plugin_id", "repo_url", "index_url"}
+    optional = {"deprecated"}
     result: list[dict[str, str]] = []
     for source in sources:
-        if not isinstance(source, dict) or set(source) != required:
-            raise ValueError(f"source must contain exactly {sorted(required)}")
-        if not all(isinstance(source[key], str) and source[key] for key in required):
+        if not isinstance(source, dict) or not required <= set(source) <= required | optional:
+            raise ValueError(f"source must contain {sorted(required)} and optionally {sorted(optional)}")
+        if not all(isinstance(value, str) and value for value in source.values()):
             raise ValueError("source fields must be non-empty strings")
         if not source["repo_url"].startswith("https://github.com/"):
             raise ValueError(f"unsupported repository URL for {source['plugin_id']}")
@@ -92,7 +93,20 @@ def validate_entry(entry: Any, source: dict[str, str]) -> dict[str, Any]:
                     if control not in FORM_CONTROLS:
                         raise ValueError(f"unknown admin form control {control!r}")
                     field["control"] = FORM_CONTROLS[control]
+    if "deprecated" in source:
+        mark_deprecated(normalized["manifest"], source["deprecated"])
     return normalized
+
+
+def mark_deprecated(manifest: dict[str, Any], notice: str) -> None:
+    # Silo has no deprecation field, so the notice goes into the text the
+    # catalog shows. Installs use the binary's own manifest and are unaffected.
+    presentation = manifest.setdefault("presentation", {})
+    name = presentation.get("display_name") or manifest["plugin_id"]
+    presentation["display_name"] = f"{name} (Deprecated)"
+    presentation["summary"] = f"Deprecated: {notice}"
+    description = presentation.get("description_markdown")
+    presentation["description_markdown"] = f"**Deprecated.** {notice}" + (f"\n\n{description}" if description else "")
 
 
 def aggregate(sources: list[dict[str, str]], fetcher: Callable[[str], dict[str, Any]] = fetch_json) -> dict[str, Any]:

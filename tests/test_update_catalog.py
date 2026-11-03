@@ -1,7 +1,11 @@
 import copy
 import unittest
 
-from scripts.update_catalog import aggregate, validate_entry
+import json
+import tempfile
+from pathlib import Path
+
+from scripts.update_catalog import aggregate, load_sources, validate_entry
 
 
 class CatalogAggregationTests(unittest.TestCase):
@@ -56,6 +60,41 @@ class CatalogAggregationTests(unittest.TestCase):
             ["dev.example.one", "dev.example.two"],
             [entry["manifest"]["plugin_id"] for entry in catalog["plugins"]],
         )
+
+    def test_marks_deprecated_plugin_in_catalog_text(self):
+        entry = copy.deepcopy(self.entry)
+        entry["manifest"]["presentation"] = {
+            "display_name": "Plugin One",
+            "summary": "Does things.",
+            "description_markdown": "Details.",
+            "setup_markdown": "Setup.",
+        }
+        source = {**self.source, "deprecated": "No longer maintained."}
+
+        presentation = validate_entry(entry, source)["manifest"]["presentation"]
+
+        self.assertEqual("Plugin One (Deprecated)", presentation["display_name"])
+        self.assertEqual("Deprecated: No longer maintained.", presentation["summary"])
+        self.assertEqual("**Deprecated.** No longer maintained.\n\nDetails.", presentation["description_markdown"])
+        self.assertEqual("Setup.", presentation["setup_markdown"])
+        self.assertEqual("Plugin One", entry["manifest"]["presentation"]["display_name"])
+
+    def test_deprecation_without_presentation_uses_plugin_id(self):
+        source = {**self.source, "deprecated": "Unsupported."}
+        presentation = validate_entry(self.entry, source)["manifest"]["presentation"]
+        self.assertEqual("dev.example.one (Deprecated)", presentation["display_name"])
+        self.assertEqual("**Deprecated.** Unsupported.", presentation["description_markdown"])
+        self.assertNotIn("presentation", self.entry["manifest"])
+
+    def test_load_sources_accepts_deprecation_and_rejects_unknown_keys(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "sources.json"
+            path.write_text(json.dumps({"sources": [{**self.source, "deprecated": "Unsupported."}]}))
+            self.assertEqual("Unsupported.", load_sources(path)[0]["deprecated"])
+            for extra in ({"deprecated": ""}, {"note": "x"}):
+                path.write_text(json.dumps({"sources": [{**self.source, **extra}]}))
+                with self.assertRaises(ValueError):
+                    load_sources(path)
 
     def test_rejects_binary_platform_not_advertised_by_manifest(self):
         entry = copy.deepcopy(self.entry)

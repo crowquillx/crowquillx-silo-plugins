@@ -313,9 +313,9 @@
           }
         ],
         "presentation": {
-          "display_name": "Comic Pages",
-          "summary": "Read CBR/RAR comics in Aidoku using server-side page extraction.",
-          "description_markdown": "Extracts comic pages from RAR4, RAR5 and ZIP archives using the reader's existing Silo access. Supports solid RAR archives, natural page ordering and a bounded extraction cache. Linux amd64 and arm64. No media filesystem mapping or proprietary unrar executable is required.",
+          "display_name": "Comic Pages (Deprecated)",
+          "summary": "Deprecated: This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.",
+          "description_markdown": "**Deprecated.** This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.\n\nExtracts comic pages from RAR4, RAR5 and ZIP archives using the reader's existing Silo access. Supports solid RAR archives, natural page ordering and a bounded extraction cache. Linux amd64 and arm64. No media filesystem mapping or proprietary unrar executable is required.",
           "setup_markdown": "Configure the Silo base URL reachable from the plugin and a dedicated writable cache directory. The Aidoku Silo source v11 or newer finds this installation automatically; older sources need its installation ID in Reading \u2192 Comic Pages plugin installation ID. See the README for resource limits.",
           "homepage_url": "https://github.com/crowquillx/silo-comic-pages",
           "source_url": "https://github.com/crowquillx/silo-comic-pages",
@@ -349,9 +349,9 @@
           }
         ],
         "presentation": {
-          "display_name": "Light Novel Metadata",
-          "summary": "Matches light novel volumes in ebook libraries using RanobeDB and adds high-resolution covers.",
-          "description_markdown": "Matches each light novel volume to [RanobeDB](https://ranobedb.org), a light novel database, by ISBN or title. Adds English and Japanese titles, descriptions, release dates, publishers, authors, genres, and series order. Covers come from Amazon, J-Novel Club, or Open Library when a high-resolution copy exists, falling back to RanobeDB. Series banners come from AniList and J-Novel Club.",
+          "display_name": "Light Novel Metadata (Deprecated)",
+          "summary": "Deprecated: This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.",
+          "description_markdown": "**Deprecated.** This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.\n\nMatches each light novel volume to [RanobeDB](https://ranobedb.org), a light novel database, by ISBN or title. Adds English and Japanese titles, descriptions, release dates, publishers, authors, genres, and series order. Covers come from Amazon, J-Novel Club, or Open Library when a high-resolution copy exists, falling back to RanobeDB. Series banners come from AniList and J-Novel Club.",
           "setup_markdown": "Open the ebook library that holds your light novels, add **Light Novel Metadata** to its metadata providers, and move it above **Ebook Metadata**. The plugin is not enabled for ebook libraries automatically, so general ebook libraries are unaffected. Titles and descriptions follow each book's language unless **Preferred language** is set.",
           "homepage_url": "https://github.com/crowquillx/silo-light-novel-metadata",
           "source_url": "https://github.com/crowquillx/silo-light-novel-metadata",
@@ -899,9 +899,9 @@
           }
         ],
         "presentation": {
-          "display_name": "ShokoAnime VFS",
-          "summary": "Builds a Shoko-backed virtual filesystem for Silo libraries.",
-          "description_markdown": "Reads Shoko Server API v3, reconciles deterministic plugin-owned leaf symlinks, and publishes successful VFS changes for targeted Silo scans. It deliberately does not expose remote streams or modify Shoko data.",
+          "display_name": "ShokoAnime VFS (Deprecated)",
+          "summary": "Deprecated: This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.",
+          "description_markdown": "**Deprecated.** This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.\n\nReads Shoko Server API v3, reconciles deterministic plugin-owned leaf symlinks, and publishes successful VFS changes for targeted Silo scans. It deliberately does not expose remote streams or modify Shoko data.",
           "setup_markdown": "Configure a Shoko Server URL, API key, a Silo-visible output root, and managed-folder path mappings. Start with a dry-run reconcile and verify that the plugin and Silo share the same filesystem namespace. Enable the Shoko VFS autoscan source: the scheduled task uses a bounded step and scan_source.v1 resumes pending work and queues targeted scans after successful commits.",
           "homepage_url": "https://github.com/crowquillx/silo-shoko-plugin",
           "source_url": "https://github.com/crowquillx/silo-shoko-plugin",
