@@ -876,7 +876,7 @@
     {
       "manifest": {
         "plugin_id": "silo.shokoanime",
-        "version": "0.1.2",
+        "version": "0.2.0",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -904,7 +904,14 @@
                 "movie": 1,
                 "season": 1,
                 "series": 1
-              }
+              },
+              "rating_sources": [
+                {
+                  "id": "anidb",
+                  "name": "AniDB",
+                  "scale": 10
+                }
+              ]
             }
           },
           {
@@ -976,10 +983,10 @@
           }
         ],
         "presentation": {
-          "display_name": "ShokoAnime VFS (Deprecated)",
-          "summary": "Deprecated: This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.",
-          "description_markdown": "**Deprecated.** This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog.\n\nReads Shoko Server API v3, reconciles deterministic plugin-owned leaf symlinks, and publishes successful VFS changes for targeted Silo scans. It deliberately does not expose remote streams or modify Shoko data.",
-          "setup_markdown": "Configure a Shoko Server URL, API key, a Silo-visible output root, and managed-folder path mappings. Start with a dry-run reconcile and verify that the plugin and Silo share the same filesystem namespace. Enable the Shoko VFS autoscan source: the scheduled task uses a bounded step and scan_source.v1 resumes pending work and queues targeted scans after successful commits.",
+          "display_name": "ShokoAnime VFS",
+          "summary": "Builds a Shoko-backed virtual filesystem for Silo libraries.",
+          "description_markdown": "Works with both stable (5.x) and daily (6.x) Shoko Server. Reads Shoko Server API v3, reconciles deterministic plugin-owned leaf symlinks, and publishes successful VFS changes for targeted Silo scans. It deliberately does not expose remote streams or modify Shoko data.",
+          "setup_markdown": "Configure a Shoko Server URL, API key, a Silo-visible output root, and managed-folder path mappings, then use the connection test: it checks the URL, the API key, and every mapped folder. The plugin and Silo must share the same filesystem namespace. Run the Reconcile Shoko VFS task to build the library: a crawl that outlasts the task keeps running in the background, and the task output reports its progress. Enable the Shoko VFS autoscan source so Silo scans changed paths automatically.",
           "homepage_url": "https://github.com/crowquillx/silo-shoko-plugin",
           "source_url": "https://github.com/crowquillx/silo-shoko-plugin",
           "support_url": "https://github.com/crowquillx/silo-shoko-plugin/issues",
@@ -992,16 +999,16 @@
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.1.2/plugin-linux-amd64",
-          "checksum": "35fef409cf91557878a4814b85e53ab385997b795b1a167423fa33d4f0f39cde"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.2.0/plugin-linux-amd64",
+          "checksum": "b3cba6c534c2ece22c1b5ae424b72a175390036377412e341a4d5f97417a5d2b"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.1.2/plugin-linux-arm64",
-          "checksum": "4228ed940098cf0015350a5fe4ddb71e40685899f35b22738dd68bff33d64a2d"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.2.0/plugin-linux-arm64",
+          "checksum": "393de8f005d4880f9ad8f8edb9543b762efe6e57373efe302ca1dce957579cc8"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.1.2/plugin-darwin-arm64",
-          "checksum": "b9d93473944aaae9a550435ceeb61e57ffbdcd66a43664c3114ebeda1cde83cc"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.2.0/plugin-darwin-arm64",
+          "checksum": "edb5b3fa8590d9a89919cf64fe932a8567302d602201cd045f43fb3f21a5096d"
         }
       }
     }
