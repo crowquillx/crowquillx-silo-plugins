@@ -17,6 +17,7 @@ https://raw.githubusercontent.com/crowquillx/crowquillx-silo-plugins/main/reposi
 | --- | --- |
 | [Theme Songs](https://github.com/crowquillx/silo-theme-songs) | Downloads movie and series themes, and anime openings and endings, as MP3. |
 | [AniList Sync](https://github.com/crowquillx/silo-anilist-sync) | Syncs anime watch history with AniList. |
+| [ShokoAnime VFS](https://github.com/crowquillx/silo-shoko-plugin) | Builds a library from your Shoko groups, with metadata, artwork and theme songs. |
 
 ### Deprecated
 
@@ -24,7 +25,6 @@ These plugins are no longer maintained and may not work with current Silo releas
 
 | Plugin | What it did |
 | --- | --- |
-| [ShokoAnime VFS](https://github.com/crowquillx/silo-shoko-plugin) | Builds a Shoko media library with metadata and artwork. |
 | [Comic Pages](https://github.com/crowquillx/silo-comic-pages) | Serves comic pages to the Silo Aidoku source. |
 | [Light Novel Metadata](https://github.com/crowquillx/silo-light-novel-metadata) | Matches light novel volumes to RanobeDB and adds high-resolution covers. |
 

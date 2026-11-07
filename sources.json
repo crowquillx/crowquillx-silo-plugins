@@ -8,8 +8,7 @@
     {
       "plugin_id": "silo.shokoanime",
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
-      "index_url": "https://github.com/crowquillx/silo-shoko-plugin/releases/latest/download/repository.json",
-      "deprecated": "This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog."
+      "index_url": "https://github.com/crowquillx/silo-shoko-plugin/releases/latest/download/repository.json"
     },
     {
       "plugin_id": "dev.crowquillx.comic-pages",
