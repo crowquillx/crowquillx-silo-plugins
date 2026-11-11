@@ -3,7 +3,7 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.anilist-sync",
-        "version": "0.8.0",
+        "version": "0.9.0",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -160,8 +160,7 @@
             "key": "provider",
             "title": "AniList provider settings",
             "description": "Watched synchronization behavior.",
-            "json_schema": "{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"sync_manual_watched\":{\"type\":\"boolean\",\"default\":false},\"playback_completion_percent\":{\"type\":\"number\",\"minimum\":1,\"maximum\":99,\"default\":90},\"import_full_scan\":{\"type\":\"boolean\",\"default\":false},\"only_existing_entries\":{\"type\":\"boolean\",\"default\":false}}}",
-            "required": true,
+            "json_schema": "{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"sync_manual_watched\":{\"type\":\"boolean\",\"default\":false},\"playback_completion_percent\":{\"type\":\"number\",\"description\":\"Ignored. Silo decides when playback counts as finished. Kept so settings saved by earlier versions stay valid.\"},\"import_full_scan\":{\"type\":\"boolean\",\"default\":false},\"only_existing_entries\":{\"type\":\"boolean\",\"default\":false}}}",
             "admin_form": {
               "fields": [
                 {
@@ -170,20 +169,6 @@
                   "description": "Also send items marked watched without being played, for every profile. Each profile can also turn this on for itself in Settings \u2192 Watch Providers. The existing-entry restriction applies to manual marks too.",
                   "control": 5,
                   "default_value": false
-                },
-                {
-                  "key": "playback_completion_percent",
-                  "label": "Playback completion threshold",
-                  "description": "Used only when Silo does not say whether playback finished, as older Silo versions do not. Current Silo versions decide with their own watched threshold.",
-                  "control": 4,
-                  "required": true,
-                  "default_value": 90,
-                  "validation": {
-                    "has_min": true,
-                    "min": 1,
-                    "has_max": true,
-                    "max": 99
-                  }
                 },
                 {
                   "key": "import_full_scan",
@@ -251,16 +236,16 @@
       "repo_url": "https://github.com/crowquillx/silo-anilist-sync",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.8.0/plugin-linux-amd64",
-          "checksum": "09a411f322047f2900fc8dc1c05cb4e0c5d8645d6a0be8bac024c7e2a513db73"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.9.0/plugin-linux-amd64",
+          "checksum": "81e8fbccaccb7f4d1148259e186807712014dbfa73fe3a24623fe5104a306057"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.8.0/plugin-linux-arm64",
-          "checksum": "c8f830f2c3fbabf710c774ec36cba7d706cdbd207043dee7dcd42f539571c767"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.9.0/plugin-linux-arm64",
+          "checksum": "34c92991fc1c447c9fcec750d182d59af743b5907ca1a1a3e7ff552b03f8594b"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.8.0/plugin-darwin-arm64",
-          "checksum": "8ced849772209d159e0b7a57a5593c5b67620dd6a31529a5d6ed24e8c78f0430"
+          "url": "https://github.com/crowquillx/silo-anilist-sync/releases/download/v0.9.0/plugin-darwin-arm64",
+          "checksum": "eea0b06c791ca5d59f307c82533f9212db4b2eb5386bcaf104fc56a66687f351"
         }
       }
     },
@@ -539,8 +524,8 @@
     {
       "manifest": {
         "plugin_id": "dev.crowquillx.theme-songs",
-        "version": "0.2.2",
-        "checksum": "6467b15de48c0fba1c3f5e94080045435df2438cd60965983f0b44e96e890586",
+        "version": "0.2.3",
+        "checksum": "5bc4696d293e07f90abdf46e6530a95a4f85694051c374d07caf1d1f89dbdd94",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -555,8 +540,8 @@
         "presentation": {
           "display_name": "Theme Songs",
           "summary": "Downloads theme songs for movies and series, with season openings and endings for anime from AnimeThemes.",
-          "description_markdown": "Downloads theme audio for movies and series from ThemerrDB, and opening and ending themes for anime series from AnimeThemes. Themes are saved as MP3 in each item's `theme-music` folder, and existing themes are never replaced. Theme Songs runs on its own once a day and after Silo scans new items.\n\nAnimeThemes was a separate plugin before version 0.2.0. Uninstall it after installing this version; Theme Songs keeps managing the themes it downloaded.",
-          "setup_markdown": "1. Create an API key in **Administration \u2192 API Keys**, paste it into **Silo API key** and save.\n2. Open **Theme Songs** in the admin menu. The first run starts shortly after, and the page lets you choose libraries.\n\nSilo writes themes into your media folders, so they must be writable. Silo's Docker Compose file mounts media read-only; remove `:ro` from the media volume and recreate the container. Restart Silo to see **Download Theme Songs** in Scheduled Tasks.",
+          "description_markdown": "Downloads theme audio for movies and series from ThemerrDB, and opening and ending themes for anime series from AnimeThemes. Themes are saved as MP3 in each item's `theme-music` folder, and existing themes are never replaced. Theme Songs runs when Silo starts and after Silo scans new items, and once a day while the plugin stays running.\n\nAnimeThemes was a separate plugin before version 0.2.0. Uninstall it after installing this version; Theme Songs keeps managing the themes it downloaded.",
+          "setup_markdown": "1. Create an API key in **Administration \u2192 API Keys**, paste it into **Silo API key** and save.\n2. Open **Theme Songs** in the admin menu. The first run starts shortly after, and the page lets you choose libraries.\n\nSilo writes themes into your media folders, so they must be writable. Silo's Docker Compose file mounts media read-only; remove `:ro` from the media volume and recreate the container. Restart Silo to see **Download Theme Songs** in **Scheduled Tasks**.\n\nThe daily run needs the plugin to stay running, and Silo stops the plugin when you save its settings. For a run every day, open **Download Theme Songs** in **Administration \u2192 Scheduled Tasks**, choose **Edit Schedule** and **Add Trigger**, set the trigger to **Daily** and save.\n\nOn Silo versions without plugin settings checks, **Check Connection** says connection checks are not supported for this plugin. That is not an error.",
           "homepage_url": "https://github.com/crowquillx/silo-theme-songs",
           "source_url": "https://github.com/crowquillx/silo-theme-songs",
           "support_url": "https://github.com/crowquillx/silo-theme-songs/issues",
@@ -570,7 +555,7 @@
             "type": "scheduled_task.v1",
             "id": "sync",
             "display_name": "Download Theme Songs",
-            "description": "Downloads movie and series themes. Theme Songs also runs on its own; add triggers here for extra runs."
+            "description": "Downloads movie and series themes. Theme Songs also runs after library scans; add a daily trigger here for a run every day."
           },
           {
             "type": "event_consumer.v1",
@@ -594,7 +579,7 @@
             "title": "Theme Songs settings",
             "description": "Only the API key is required.",
             "json_schema": "{\"type\":\"object\",\"properties\":{\"api_key\":{\"type\":\"string\",\"minLength\":1},\"library_ids\":{\"anyOf\":[{\"type\":\"array\",\"items\":{\"type\":\"string\"}},{\"type\":\"string\"}]},\"skip_library_ids\":{\"anyOf\":[{\"type\":\"array\",\"items\":{\"type\":\"string\"}},{\"type\":\"string\"}]},\"dry_run\":{\"type\":\"boolean\",\"default\":false},\"anime_themes\":{\"type\":\"boolean\",\"default\":true},\"anime_openings\":{\"type\":\"boolean\",\"default\":true},\"anime_endings\":{\"type\":\"boolean\",\"default\":true},\"anime_spoilers\":{\"type\":\"boolean\",\"default\":false},\"anime_nsfw\":{\"type\":\"boolean\",\"default\":false},\"assisted_search\":{\"type\":\"boolean\",\"default\":false},\"anime_library_ids\":{\"anyOf\":[{\"type\":\"array\",\"items\":{\"type\":\"string\"}},{\"type\":\"string\"}]},\"exclude_items\":{\"anyOf\":[{\"type\":\"array\",\"items\":{\"type\":\"string\"}},{\"type\":\"string\"}]},\"max_downloads\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":10000,\"default\":0},\"manage_tools\":{\"type\":\"boolean\",\"default\":true},\"base_url\":{\"type\":\"string\"},\"profile_id\":{\"type\":\"string\"},\"state_dir\":{\"type\":\"string\"},\"ffprobe\":{\"type\":\"string\"},\"destinations\":{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"allowed_roots\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":1},\"path_mappings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"server\":{\"type\":\"string\"},\"local\":{\"type\":\"string\"}},\"required\":[\"server\",\"local\"],\"additionalProperties\":false}},\"single_season_flat_fallback\":{\"type\":\"boolean\",\"default\":false},\"destination_overrides\":{\"type\":\"object\",\"additionalProperties\":{\"type\":\"string\"}}},\"additionalProperties\":false},{\"type\":\"string\"}]},\"provider\":{\"anyOf\":[{\"type\":\"object\"},{\"type\":\"string\"}]},\"anime_provider\":{\"anyOf\":[{\"type\":\"object\"},{\"type\":\"string\"}]},\"preview_only\":{\"type\":\"boolean\"},\"manual_refresh\":{\"type\":\"boolean\"},\"source_generation\":{\"type\":\"string\"}},\"required\":[\"api_key\"],\"additionalProperties\":false}",
-            "required": false,
+            "required": true,
             "admin_form": {
               "fields": [
                 {
@@ -864,19 +849,19 @@
       "repo_url": "https://github.com/crowquillx/silo-theme-songs",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.2.2/plugin-linux-amd64",
-          "checksum": "6467b15de48c0fba1c3f5e94080045435df2438cd60965983f0b44e96e890586"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.2.3/plugin-linux-amd64",
+          "checksum": "5bc4696d293e07f90abdf46e6530a95a4f85694051c374d07caf1d1f89dbdd94"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.2.2/plugin-linux-arm64",
-          "checksum": "a131efdc3fa3cffa877e890612a63ee705c782dc49c8818a3d6d5aaed2736071"
+          "url": "https://github.com/crowquillx/silo-theme-songs/releases/download/v0.2.3/plugin-linux-arm64",
+          "checksum": "cd718e6db6379373199df58cde25d187e4f03e761e25c8b102604473aa9bc604"
         }
       }
     },
     {
       "manifest": {
         "plugin_id": "silo.shokoanime",
-        "version": "0.2.5",
+        "version": "0.3.0",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -936,7 +921,17 @@
             "type": "scan_source.v1",
             "id": "shoko",
             "display_name": "Shoko VFS changes",
-            "description": "Reports successfully reconciled VFS paths so Silo can scan them automatically."
+            "description": "Reports successfully reconciled VFS paths so Silo can scan them automatically.",
+            "metadata": {
+              "scan_source": {
+                "connection": "none",
+                "delivery_modes": [
+                  "poll"
+                ],
+                "emits_native_paths": true,
+                "summary": "Scans the Shoko VFS folders that changed after each reconcile."
+              }
+            }
           }
         ],
         "global_config_schema": [
@@ -1121,16 +1116,16 @@
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.2.5/plugin-linux-amd64",
-          "checksum": "c711339756c101ece6cf546ba326ee9901dcf941b0da8dcc4b1f664c29135f0b"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.3.0/plugin-linux-amd64",
+          "checksum": "abca23fe185644b5f6ae04e723c655c6ffc1e1a7ce85f14541523829d507d6d2"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.2.5/plugin-linux-arm64",
-          "checksum": "8b2e7854cfc282612536da1f2d5bf5865114734fa074b7a99269321fc03c323b"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.3.0/plugin-linux-arm64",
+          "checksum": "6389387a06e2cba3e316acb39c8ac3ed4763708a37e07465d07388af4a63d8cf"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.2.5/plugin-darwin-arm64",
-          "checksum": "bdc191e22408a6a411b3c4656ffb6bc9f75beef5261086534d22a0efa9ab9194"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.3.0/plugin-darwin-arm64",
+          "checksum": "0cdcd0689e0709023f365c68c4c24db0e9e294ab3dc9daed05af939ac92834c6"
         }
       }
     }
