@@ -861,7 +861,7 @@
     {
       "manifest": {
         "plugin_id": "silo.shokoanime",
-        "version": "0.5.7",
+        "version": "0.5.8",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -937,7 +937,7 @@
             "type": "watch_sync_provider.v1",
             "id": "shoko",
             "display_name": "Shoko",
-            "description": "Marks an episode watched in Shoko when you finish playing it in Silo, and can import your Shoko watched episodes into Silo. Connect with your Shoko API key, from Settings > API Keys in Shoko's Web UI, and a Silo API key and profile ID: the plugin reads each finished item from Silo to find its Shoko episode.",
+            "description": "Marks an episode watched in Shoko when you finish playing it in Silo, can export the episodes you watched in Silo to Shoko, and can import your Shoko watched episodes into Silo. Connect with your Shoko API key, from Settings > API Keys in Shoko's Web UI, and a Silo API key and profile: the plugin reads each finished item from Silo to find its Shoko episode.",
             "config_schema": [
               {
                 "key": "silo",
@@ -964,8 +964,8 @@
                     },
                     {
                       "key": "profile_id",
-                      "label": "Silo profile ID",
-                      "description": "The ID of the profile you are connecting, from GET /api/v2/profiles.",
+                      "label": "Silo profile",
+                      "description": "The name of the profile you are connecting, as Silo shows it, such as Tan. Its ID also works.",
                       "control": 1,
                       "required": true
                     }
@@ -978,6 +978,7 @@
               "auth_methods": [
                 2
               ],
+              "export_watched": true,
               "import_watched": true,
               "supported_media_types": [
                 1,
@@ -1191,7 +1192,7 @@
         "presentation": {
           "display_name": "ShokoAnime VFS",
           "summary": "Builds a Shoko-backed virtual filesystem for Silo libraries.",
-          "description_markdown": "Works with both stable (5.x) and daily (6.x) Shoko Server. Reads Shoko Server API v3, reconciles deterministic plugin-owned leaf symlinks, and publishes successful VFS changes for targeted Silo scans. It listens to Shoko's events, so new, moved and deleted files reach the VFS within seconds, and can ask Silo to refresh a show when its metadata or artwork changes in Shoko. It deliberately does not expose remote streams. It changes Shoko data only for profiles that connect the Shoko watch provider, which marks an episode watched in Shoko when the profile finishes playing it. That provider can also import Shoko's watched episodes into Silo, which is off until a profile turns it on.",
+          "description_markdown": "Works with both stable (5.x) and daily (6.x) Shoko Server. Reads Shoko Server API v3, reconciles deterministic plugin-owned leaf symlinks, and publishes successful VFS changes for targeted Silo scans. It listens to Shoko's events, so new, moved and deleted files reach the VFS within seconds, and can ask Silo to refresh a show when its metadata or artwork changes in Shoko. It deliberately does not expose remote streams. It changes Shoko data only for profiles that connect the Shoko watch provider, which marks an episode watched in Shoko when the profile finishes playing it, and can export the profile's Silo watch history to Shoko. That provider can also import Shoko's watched episodes into Silo, which is off until a profile turns it on.",
           "setup_markdown": "Configure a Shoko Server URL, API key, a Silo-visible output root, and managed-folder path mappings, then use the connection test: it checks the URL, the API key, and every mapped folder. The plugin and Silo must share the same filesystem namespace. Run the Reconcile Shoko VFS task to build the library: a crawl that outlasts the task keeps running in the background, and the task output reports its progress. Enable the Shoko VFS autoscan source and set Silo's default autoscan poll interval to 30 to 60 seconds, which also bounds this source, so Silo scans changed paths soon after Shoko changes; the reconcile task then only needs to run every few hours or daily as a repair. To have Silo refresh shows whose metadata or artwork changes in Shoko, set the Silo server URL and a Silo administrator's API key for refreshes. To mark finished episodes watched in Shoko, each profile connects the Shoko watch provider with its own Shoko API key (Shoko Web UI: Settings > API Keys) and a Silo API key for the same profile.",
           "homepage_url": "https://github.com/crowquillx/silo-shoko-plugin",
           "source_url": "https://github.com/crowquillx/silo-shoko-plugin",
@@ -1205,16 +1206,16 @@
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.7/plugin-linux-amd64",
-          "checksum": "df9b49c620c562e345bc5122e47889eac86d0bd6ecc193a6a4b12cf461a945e6"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.8/plugin-linux-amd64",
+          "checksum": "590aa195cad0abb2d6c4bf9d2c7028d0b247a2e9102c8dcd588b8f4baaaaa7f4"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.7/plugin-linux-arm64",
-          "checksum": "9859124517f92640af94aee484ecbd4bf456a1252af13908b8ad16960fcc193f"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.8/plugin-linux-arm64",
+          "checksum": "62c13443fc5b1afb57501bd6026343b1889edc65e0dc417b5aae6aad65682ff9"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.7/plugin-darwin-arm64",
-          "checksum": "31c571a246a122a2c7645e3e00035a0d9e92b2951ed91c828a98c91a9866fd43"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.8/plugin-darwin-arm64",
+          "checksum": "427a9978bde0d50eeb3bf203767bc2c98b0bce43e877a90683082518e15955d9"
         }
       }
     }
