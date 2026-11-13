@@ -861,7 +861,7 @@
     {
       "manifest": {
         "plugin_id": "silo.shokoanime",
-        "version": "0.5.6",
+        "version": "0.5.7",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -965,7 +965,7 @@
                     {
                       "key": "profile_id",
                       "label": "Silo profile ID",
-                      "description": "The ID of the profile you are connecting, from GET /api/v1/profiles.",
+                      "description": "The ID of the profile you are connecting, from GET /api/v2/profiles.",
                       "control": 1,
                       "required": true
                     }
@@ -1205,16 +1205,16 @@
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.6/plugin-linux-amd64",
-          "checksum": "808bffc5a6a7ff04017436e60917d879c6467b737af6d45a4827e87bdf65c6f6"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.7/plugin-linux-amd64",
+          "checksum": "df9b49c620c562e345bc5122e47889eac86d0bd6ecc193a6a4b12cf461a945e6"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.6/plugin-linux-arm64",
-          "checksum": "a7d8edb71d4ad3f494777fd18bbf42892f288c5d4849115144a58b39a9449182"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.7/plugin-linux-arm64",
+          "checksum": "9859124517f92640af94aee484ecbd4bf456a1252af13908b8ad16960fcc193f"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.6/plugin-darwin-arm64",
-          "checksum": "1acbc70351a0f0c119ea503bd82e878c673f5c0a4dc41e8d4c006d8530f71027"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.5.7/plugin-darwin-arm64",
+          "checksum": "31c571a246a122a2c7645e3e00035a0d9e92b2951ed91c828a98c91a9866fd43"
         }
       }
     }
