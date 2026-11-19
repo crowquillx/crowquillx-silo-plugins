@@ -861,7 +861,7 @@
     {
       "manifest": {
         "plugin_id": "silo.shokoanime",
-        "version": "0.7.0",
+        "version": "0.8.0",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -1018,7 +1018,7 @@
             "key": "connection",
             "title": "ShokoAnime connection",
             "description": "Shoko connection and VFS path policy. The API key is encrypted by Silo.",
-            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\",\"format\":\"uri\",\"minLength\":1},\"image_mode\":{\"type\":\"string\",\"enum\":[\"direct\",\"public_url\",\"s3\"]},\"image_base_url\":{\"type\":\"string\"},\"s3_endpoint\":{\"type\":\"string\"},\"s3_region\":{\"type\":\"string\"},\"s3_bucket\":{\"type\":\"string\"},\"s3_prefix\":{\"type\":\"string\"},\"s3_access_key_id\":{\"type\":\"string\"},\"s3_secret_access_key\":{\"type\":\"string\"},\"api_key\":{\"type\":\"string\",\"minLength\":1},\"vfs_root\":{\"type\":\"string\",\"minLength\":1},\"managed_folder_map\":{\"type\":\"string\",\"minLength\":2},\"live_updates\":{\"type\":\"boolean\"},\"silo_base_url\":{\"type\":\"string\"},\"silo_api_key\":{\"type\":\"string\"},\"introdb_api_key\":{\"type\":\"string\"}},\"required\":[\"base_url\",\"api_key\",\"vfs_root\",\"managed_folder_map\"],\"additionalProperties\":false}",
+            "json_schema": "{\"type\":\"object\",\"properties\":{\"base_url\":{\"type\":\"string\",\"format\":\"uri\",\"minLength\":1},\"image_mode\":{\"type\":\"string\",\"enum\":[\"direct\",\"public_url\",\"s3\"]},\"image_base_url\":{\"type\":\"string\"},\"s3_endpoint\":{\"type\":\"string\"},\"s3_region\":{\"type\":\"string\"},\"s3_bucket\":{\"type\":\"string\"},\"s3_prefix\":{\"type\":\"string\"},\"s3_access_key_id\":{\"type\":\"string\"},\"s3_secret_access_key\":{\"type\":\"string\"},\"api_key\":{\"type\":\"string\",\"minLength\":1},\"vfs_root\":{\"type\":\"string\",\"minLength\":1},\"managed_folder_map\":{\"type\":\"string\",\"minLength\":2},\"live_updates\":{\"type\":\"boolean\"},\"short_season_titles\":{\"type\":\"boolean\"},\"silo_base_url\":{\"type\":\"string\"},\"silo_api_key\":{\"type\":\"string\"},\"introdb_api_key\":{\"type\":\"string\"}},\"required\":[\"base_url\",\"api_key\",\"vfs_root\",\"managed_folder_map\"],\"additionalProperties\":false}",
             "required": true,
             "admin_form": {
               "fields": [
@@ -1182,6 +1182,13 @@
                   "default_value": true
                 },
                 {
+                  "key": "short_season_titles",
+                  "label": "Shorten season titles",
+                  "description": "Name a show's seasons without the show's own title: under Demon Slayer, \"Demon Slayer: Entertainment District Arc\" becomes \"Entertainment District Arc\". A season keeps its full name when only a year, a number or a few characters would be left. Seasons Shoko gives the same name are told apart with their AniDB main title. Refresh a show's metadata in Silo to rename its seasons.",
+                  "control": 5,
+                  "default_value": false
+                },
+                {
                   "key": "silo_base_url",
                   "label": "Silo server URL (for refreshes)",
                   "description": "Optional. With a Silo admin API key, the plugin asks Silo to refresh a show when its metadata or artwork changes in Shoko. Use the URL the plugin reaches Silo at, such as http://localhost:8080.",
@@ -1223,16 +1230,16 @@
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.7.0/plugin-linux-amd64",
-          "checksum": "ac01f8e4a766501a508a638b014184d2f8d39a9591bb2c5b0c4d1e793c571bbb"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.0/plugin-linux-amd64",
+          "checksum": "9c66948fff1268b9a6b5ab91a0d2043ba57923449f03ac365c072f47e38e1ab3"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.7.0/plugin-linux-arm64",
-          "checksum": "87c2bbde701aec3389341f4c36061a1e5d2185c8b4e3801b7ba2e3e5b6a3fcc2"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.0/plugin-linux-arm64",
+          "checksum": "31e7d4d041e88cf7b39c47347eb5dee4106eea236dfe66a0085e1168431669ac"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.7.0/plugin-darwin-arm64",
-          "checksum": "840c88be0db9b4c28715a3e5e25f94d13f9113dabac1cd6935d35edd2e6a4093"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.0/plugin-darwin-arm64",
+          "checksum": "bc23b21abf475dc77bb67c5f8d7be3a9b650bafb0e465d75d63afeda66c7ef91"
         }
       }
     }
