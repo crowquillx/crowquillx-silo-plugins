@@ -11,21 +11,9 @@
       "index_url": "https://github.com/crowquillx/silo-shoko-plugin/releases/latest/download/repository.json"
     },
     {
-      "plugin_id": "dev.crowquillx.comic-pages",
-      "repo_url": "https://github.com/crowquillx/silo-comic-pages",
-      "index_url": "https://github.com/crowquillx/silo-comic-pages/releases/latest/download/repository.json",
-      "deprecated": "This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog."
-    },
-    {
       "plugin_id": "dev.crowquillx.theme-songs",
       "repo_url": "https://github.com/crowquillx/silo-theme-songs",
       "index_url": "https://github.com/crowquillx/silo-theme-songs/releases/latest/download/repository.json"
-    },
-    {
-      "plugin_id": "dev.crowquillx.light-novel-metadata",
-      "repo_url": "https://github.com/crowquillx/silo-light-novel-metadata",
-      "index_url": "https://github.com/crowquillx/silo-light-novel-metadata/releases/latest/download/repository.json",
-      "deprecated": "This plugin is no longer maintained and may not work with current Silo releases. It will be removed from this catalog."
     }
   ]
 }
