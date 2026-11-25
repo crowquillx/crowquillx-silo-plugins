@@ -635,7 +635,7 @@
     {
       "manifest": {
         "plugin_id": "silo.shokoanime",
-        "version": "0.8.2",
+        "version": "0.8.3",
         "silo_api_version": "v1",
         "supported_platforms": [
           {
@@ -1004,16 +1004,16 @@
       "repo_url": "https://github.com/crowquillx/silo-shoko-plugin",
       "binaries": {
         "linux/amd64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.2/plugin-linux-amd64",
-          "checksum": "3f4425fe70670f2de40bf21bfd980d2f938ffa0b17574d1bd64ec0de13f76057"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.3/plugin-linux-amd64",
+          "checksum": "6062c35716a668f592675db308800bf87786f18e7358b16fb44b1f15bc038682"
         },
         "linux/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.2/plugin-linux-arm64",
-          "checksum": "4f4ffb5a659b87096f0a85b3069a856548242eae8747ccb7a00b8518cd72562c"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.3/plugin-linux-arm64",
+          "checksum": "943cc84c76815cd1cda02627568032aa632038601ca33fc43cd02405a489422f"
         },
         "darwin/arm64": {
-          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.2/plugin-darwin-arm64",
-          "checksum": "571a567587d9bbcc82debdd5561a786e67b2a66f85cf2c6581648e698023ce03"
+          "url": "https://github.com/crowquillx/silo-shoko-plugin/releases/download/v0.8.3/plugin-darwin-arm64",
+          "checksum": "19d5fead4ed18a1e02e95246091bbb62ed21b6c55c627484c8cbe41236d19c64"
         }
       }
     }
